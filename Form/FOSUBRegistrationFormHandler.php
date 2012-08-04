@@ -34,6 +34,7 @@ class FOSUBRegistrationFormHandler implements RegistrationFormHandlerInterface
     protected $userManager;
     protected $mailer;
     protected $registrationFormHandler;
+    protected $tokenGenerator;
     protected $iterations;
     protected $tokenGenerator;
 
@@ -51,6 +52,7 @@ class FOSUBRegistrationFormHandler implements RegistrationFormHandlerInterface
         $this->registrationFormHandler = $registrationFormHandler;
         $this->userManager = $userManager;
         $this->mailer = $mailer;
+        $this->tokenGenerator = $tokenGenerator;
         $this->iterations = $iterations;
         $this->tokenGenerator = $tokenGenerator;
     }
@@ -118,7 +120,7 @@ class FOSUBRegistrationFormHandler implements RegistrationFormHandlerInterface
     {
         $handlerClass = get_class($this->registrationFormHandler);
 
-        return new $handlerClass($form, $request, $this->userManager, $this->mailer);
+        return new $handlerClass($form, $request, $this->userManager, $this->mailer, $this->tokenGenerator);
     }
 
 }
