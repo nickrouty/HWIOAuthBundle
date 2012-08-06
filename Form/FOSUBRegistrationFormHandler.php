@@ -36,7 +36,6 @@ class FOSUBRegistrationFormHandler implements RegistrationFormHandlerInterface
     protected $registrationFormHandler;
     protected $tokenGenerator;
     protected $iterations;
-    protected $tokenGenerator;
 
     /**
      * Constructor.
